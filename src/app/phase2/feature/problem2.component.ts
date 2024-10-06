@@ -48,7 +48,6 @@ export class Problem2Component {
         camera[1][0] <= softwareCamera[1][0] &&
         camera[1][1] >= softwareCamera[1][1]
     );
-    console.log('availabelCameras', availabelCameras);
     if (!availabelCameras.length) {
       return false;
     }    
