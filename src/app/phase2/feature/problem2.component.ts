@@ -51,24 +51,20 @@ type Rectangle = {
   `,
 })
 export class Problem2Component {
-  public readonly hardwareCameras: Rectangle[] = [
-    {
-      distanceRange: { min: 0.1, max: 0.5 },
-      lightRange: { min: 0.1, max: 0.5 },
+  public hardwareCameras = Array.from({ length: 10 }, (_, i) => ({
+    distanceRange: {
+      min: Math.max(0.1, i * 2 - 1),
+      max: Math.min(20, i * 2 + 4),
     },
-    {
-      distanceRange: { min: 0.1, max: 0.5 },
-      lightRange: { min: 0.1, max: 0.5 },
+    lightRange: {
+      min: Math.max(1, i * 200 - 100),
+      max: Math.min(2000, i * 200 + 400),
     },
-    {
-      distanceRange: { min: 0.1, max: 0.5 },
-      lightRange: { min: 0.1, max: 0.5 },
-    },
-  ];
+  }));
 
   public readonly softwareCamera: Rectangle = {
-    distanceRange: { min: 1, max: 5 },
-    lightRange: { min: 4, max: 6 },
+    distanceRange: { min: 3, max: 4 },
+    lightRange: { min: 1, max: 1000 },
   };
 
   // Helper to check if two float are equal
